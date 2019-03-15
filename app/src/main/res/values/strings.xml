@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Food Recommendation System</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_password">Enter password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="registration">Registration</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_previous_deseases">Enter previous deseases</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_alergy">Enter allergies</string>
+    <string name="enter_daily_medicines">Enter daily medicines</string>
+    <string name="enter_height">Enter height</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="enter_income_optional">Enter income(Optional)</string>
+    <string name="cancel">Cancel</string>
+    <string-array name="gender">
+
+        <item>Select gender</item>
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
+
+    <string-array name="states">
+
+        <item>Select</item>
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhatisgarh</item>
+        <item>Goa</item>
+        <item>Gujrat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu Kashmir</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajsthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttarakhand</item>
+        <item>Uttar Pradesh</item>
+        <item>West Bengal</item>
+
+
+    </string-array>
+
+    <string-array name="season">
+        <item>Select</item>
+        <item>Mansoon</item>
+        <item>Winter</item>
+        <item>Summer</item>
+    </string-array>
+
+    <string-array name="exercise">
+        <item>Select lifestyle</item>
+        <item>Sedentary</item>
+        <item>Lightly active</item>
+        <item>Moderately active</item>
+    </string-array>
+
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="welcome">Welcome :</string>
+    <string name="tatyabhau_chavan"></string>
+    <string name="update">Update</string>
+    <string name="set_gym_time_morning">Select time (snacks)</string>
+    <string name="select_time">Select time</string>
+    <string name="select_time_breakfast">Select time (breakfast)</string>
+    <string name="select_time_lunch">Select time (Lunch)</string>
+    <string name="select_time_dinner">Select time (Dinner)</string>
+    <string name="save">Save</string>
+    <string name="food_detail">Food detail</string>
+    <string name="your_current_weight">Your current weight</string>
+    <string name="you_are">You are</string>
+    <string name="ideal_weight">Ideal weight :</string>
+    <string name="nutrition_basics">Nutrition basics</string>
+    <string name="bmi">BMI</string>
+
+    <string name="dietos">DIETOS</string>
+    <string name="ask_to_expert">Ask to expert</string>
+    <string name="send">Send</string>
+    <string name="select_snacks">Select snacks</string>
+    <string name="snacks">Snacks</string>
+    <string name="select_breakfast">Select breakfast</string>
+    <string name="select_lunch">Select lunch</string>
+    <string name="select_dinner">Select dinner</string>
+    <!--<string name="enter_weight">Enter weight</string>-->
+    <string name="week_1">week 1</string>
+
+</resources>

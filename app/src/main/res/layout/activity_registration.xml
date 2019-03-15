@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    <android.support.constraint.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".RegistrationActivity">
+
+        <android.support.design.widget.TextInputLayout android:id="@+id/tilName" android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintTop_toTopOf="parent"
+                                                       android:layout_marginTop="24dp"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       android:layout_marginStart="16dp"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:layout_marginEnd="16dp">
+
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtName"
+                                                             android:hint="@string/enter_name"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                                                       app:layout_constraintTop_toBottomOf="@id/tilName"
+                                                       android:layout_height="wrap_content"
+                                                       android:id="@+id/tilUserName" android:layout_marginTop="24dp"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       android:layout_marginStart="16dp"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:layout_marginEnd="16dp">
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtUserName"
+                                                             android:hint="@string/enter_username"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                                                       app:layout_constraintTop_toBottomOf="@id/tilUserName"
+                                                       android:layout_height="wrap_content"
+                                                       android:id="@+id/tilPassword" android:layout_marginTop="24dp"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       android:layout_marginStart="16dp"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:layout_marginEnd="16dp">
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtPassword"
+                                                             android:inputType="textPassword"
+                                                             android:hint="@string/enter_password"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                                                       app:layout_constraintTop_toBottomOf="@id/tilPassword"
+                                                       android:layout_height="wrap_content"
+                                                       android:id="@+id/tilAge" android:layout_marginTop="24dp"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       android:layout_marginStart="16dp"
+                                                       app:layout_constraintEnd_toEndOf="parent"
+                                                       android:layout_marginEnd="16dp">
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtAge"
+                                                             android:inputType="number"
+                                                             android:hint="@string/enter_age"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/spnGender"
+                 app:layout_constraintTop_toBottomOf="@id/tilAge" android:entries="@array/gender"
+                 android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="parent"
+                 android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+                 android:layout_marginEnd="16dp"/>
+
+
+        <android.support.design.widget.TextInputLayout android:id="@+id/tilHeight" android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintTop_toBottomOf="@id/spnGender"
+                                                       android:layout_marginTop="24dp"
+                                                       android:layout_marginStart="16dp"
+                                                       android:layout_marginEnd="16dp">
+
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtHeight"
+                                                             android:inputType="number"
+                                                             android:hint="@string/enter_height"/>
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout android:id="@+id/tilWeight" android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       app:layout_constraintTop_toBottomOf="@id/tilHeight"
+                                                       android:layout_marginTop="24dp"
+                                                       android:layout_marginStart="16dp"
+                                                       android:layout_marginEnd="16dp">
+
+
+            <android.support.design.widget.TextInputEditText android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/txtWeight"
+                                                             android:inputType="number"
+                                                             android:hint="@string/enter_weight"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/spnExercise"
+                 app:layout_constraintTop_toBottomOf="@id/tilWeight" android:layout_marginTop="16dp"
+                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                 android:entries="@array/exercise"
+                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/lblBMI"
+                  android:text="@string/bmi" app:layout_constraintTop_toBottomOf="@id/spnExercise"
+                  android:padding="15dp" android:textColor="@color/colorblack"
+                  android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent" android:textStyle="bold"
+                  android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+                  android:layout_marginEnd="16dp"/>
+
+        <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/lblBMI" android:id="@+id/btnRegister"
+                app:layout_constraintStart_toEndOf="@+id/btnCancel" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
+                android:text="@string/registration"
+                android:layout_marginStart="8dp" android:layout_marginEnd="16dp"/>
+
+        <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/lblBMI" android:id="@+id/btnCancel"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/btnRegister" android:layout_marginTop="24dp"
+                android:text="@string/cancel"
+                android:layout_marginStart="16dp" android:layout_marginEnd="8dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

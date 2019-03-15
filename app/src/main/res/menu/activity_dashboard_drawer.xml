@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+                android:id="@+id/nav_profile"
+                android:title="My Profile"/>
+
+
+        <item
+                android:id="@+id/nav_food_info"
+                android:title="Food Information"/>
+
+        <item
+                android:id="@+id/nav_re_diet"
+                android:title="Recommended diet plan"/>
+
+
+        <item
+                android:id="@+id/nav_eat_time"
+                android:title="Set eating timing"/>
+
+        <item
+                android:id="@+id/nav_suggest"
+                android:title="Consult with expert"/>
+
+        <item
+                android:id="@+id/nav_fao"
+                android:title="FAQ"/>
+
+        <item
+                android:id="@+id/nav_rate_us"
+                android:visible="false"
+                android:title="Rate us"/>
+
+        <item
+                android:id="@+id/nav_logout"
+                android:title="Logout"/>
+
+
+    </group>
+
+
+</menu>
