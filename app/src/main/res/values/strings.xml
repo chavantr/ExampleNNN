@@ -101,11 +101,15 @@
     <string name="ask_to_expert">Ask to expert</string>
     <string name="send">Send</string>
     <string name="select_snacks">Select snacks</string>
-    <string name="snacks">Snacks</string>
+    <string name="snacks_e">Snacks</string>
     <string name="select_breakfast">Select breakfast</string>
     <string name="select_lunch">Select lunch</string>
     <string name="select_dinner">Select dinner</string>
     <!--<string name="enter_weight">Enter weight</string>-->
     <string name="week_1">week 1</string>
+    <string name="dinner">Dinner</string>
+    <string name="lunch">Lunch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="snacks">Snacks</string>
 
 </resources>

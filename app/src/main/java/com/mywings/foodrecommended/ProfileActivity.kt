@@ -33,8 +33,13 @@ class ProfileActivity : AppCompatActivity(), OnUpdateProfileListener {
         txtUserName.setText(user.username)
         txtPassword.setText(user.password)
         txtAge.setText(user.age)
-        txtHeight.setText(user.height)
         txtWeight.setText(user.weight)
+        txtHeight.setText(user.height)
+
+        if (txtWeight.text.toString().isNotEmpty() && txtHeight.text.toString().isNotEmpty()) {
+            lblBMI.text = "BMI : ${to2Digit()} ${generate()} "
+        }
+
         arrayE = resources.getStringArray(R.array.exercise)
 
         when (user.gender) {
@@ -50,16 +55,16 @@ class ProfileActivity : AppCompatActivity(), OnUpdateProfileListener {
         }
 
 
-        /* var ij = 0
+        var ij = 0
 
-         for (i in 0..arrayE.size) {
-             if (arrayE[i].equals(user.exercise, true)) {
-                 ij = i
-                 break
-             }
-         }*/
+        for (i in 0..arrayE.size) {
+            if (arrayE[i].equals(user.exercise, true)) {
+                ij = i
+                break
+            }
+        }
 
-        //  spnExercise.setSelection(ij)
+        spnExercise.setSelection(ij)
 
 
         progressDialogUtil = ProgressDialogUtil(this)
