@@ -6,7 +6,6 @@ import org.json.JSONArray
 
 class GetFoodInfoAsync : AsyncTask<String, Void, List<Calories>?>() {
 
-
     private lateinit var onFoodInfoListener: OnFoodInfoListener
 
     override fun doInBackground(vararg params: String?): List<Calories>? {
@@ -15,6 +14,15 @@ class GetFoodInfoAsync : AsyncTask<String, Void, List<Calories>?>() {
             val jInfo = JSONArray(response)
             var lst = ArrayList<Calories>()
             if (jInfo.length() > 0) {
+                for (i in 0..(jInfo.length() - 1)) {
+                    var calories = Calories()
+                    var jNode = jInfo.getJSONObject(i)
+                    calories.id = jNode.getInt("Id")
+                    calories.name = jNode.getString("Name")
+                    calories.calories = jNode.getInt("Calories")
+                    calories.type = jNode.getInt("Type")
+                    lst.add(calories)
+                }
             }
             return lst
         }
