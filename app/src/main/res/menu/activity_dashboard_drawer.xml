@@ -23,6 +23,11 @@
                 android:id="@+id/nav_eat_time"
                 android:title="Set eating timing"/>
 
+
+        <item
+                android:id="@+id/nav_week_weight"
+                android:title="Weekly weight"/>
+
         <item
                 android:id="@+id/nav_suggest"
                 android:title="Consult with expert"/>

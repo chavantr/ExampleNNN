@@ -24,7 +24,7 @@ class WeekWeightAdapter(var lst: List<Int>) : RecyclerView.Adapter<WeekWeightAda
     override fun getItemCount(): Int = lstWeeks!!.size
 
     override fun onBindViewHolder(viewHolder: WeekWeightViewHolder, position: Int) {
-        viewHolder.lblName.text = "Your weight ${lstWeeks[position]}  (Week ${position + 1}"
+        viewHolder.lblName.text = "Your weight ${lstWeeks[position]}  (Week ${position + 1})"
     }
 
     inner class WeekWeightViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

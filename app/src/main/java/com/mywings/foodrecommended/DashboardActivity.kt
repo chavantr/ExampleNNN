@@ -104,6 +104,13 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 true
             }
 
+            R.id.nav_week_weight ->{
+                drawer_layout.closeDrawer(GravityCompat.START)
+                val intent = Intent(this@DashboardActivity, UpdateWeightActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
             R.id.nav_suggest -> {
                 drawer_layout.closeDrawer(GravityCompat.START)
                 val intent = Intent(this@DashboardActivity, ExpertActivity::class.java)

@@ -19,7 +19,9 @@ object ConstantsUtil {
 
     const val FOOD_SAVE = "FMS_FoodSave"
 
-    const val GET_WEEK_WEIGHT = "FMS_Get_Week_Weight"
+    const val GET_WEEK_WEIGHT = "FMS_GetWeeklyWeight"
+
+    const val UPDATE_WEEK_WEIGHT = "FMS_UpateWeeklyWeight"
 
     const val GET_FOOD_INFO = "FMS_GetFoodInto"
 

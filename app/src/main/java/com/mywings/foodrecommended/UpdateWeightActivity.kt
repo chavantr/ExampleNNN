@@ -20,7 +20,7 @@ class UpdateWeightActivity : AppCompatActivity(), OnWeekUpdateListener, OnSetOnU
         lstWeekUpdate.layoutManager = LinearLayoutManager(this)
         init()
         btnUpdate.setOnClickListener {
-
+            initUpdate()
         }
     }
 
@@ -28,6 +28,15 @@ class UpdateWeightActivity : AppCompatActivity(), OnWeekUpdateListener, OnSetOnU
         progressDialogUtil.show()
         val getWeekUpdateAsync = GetWeekUpdateAsync()
         getWeekUpdateAsync.setOnWeekUpdateListener(this, UserInfoHolder.getInstance().user.id)
+    }
+
+    private fun initUpdate() {
+        progressDialogUtil.show()
+        val updateWeekUpdateAsync = UpdateWeeklyWeightAsync()
+        updateWeekUpdateAsync.setOnUpdateWeekListener(
+            this,
+            "?weight=" + txtWeight.text.toString() + "&uid=" + UserInfoHolder.getInstance().user.id
+        )
     }
 
     override fun onWeekUpdateSuccess(result: List<Int>?) {
@@ -39,6 +48,9 @@ class UpdateWeightActivity : AppCompatActivity(), OnWeekUpdateListener, OnSetOnU
     }
 
     override fun onSetUpdateSuccess(result: String?) {
+
+        progressDialogUtil.hide()
+        txtWeight.setText("")
 
     }
 }
