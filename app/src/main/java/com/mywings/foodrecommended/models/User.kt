@@ -16,5 +16,6 @@ data class User(
     var weight: String = "",
     var exercise: String = "",
     var income: String = "",
-    var calories: String = ""
+    var calories: String = "",
+    var idealWeight: String = ""
 )

@@ -25,5 +25,9 @@ object ConstantsUtil {
 
     const val GET_FOOD_INFO = "FMS_GetFoodInto"
 
+    const val GET_SAVE_FOOD = "FMS_GetSaveFood"
+
+    const val GET_WEIGHT_CHART = "FMS_GetWeightChart"
+
 
 }

@@ -82,7 +82,7 @@ class SettingActivity : AppCompatActivity() {
             for (i in lstControls.indices) {
                 if (lstControls.get(i).text.contains(":")) {
                     val node = lstControls.get(i).text.split(":")
-                    NotificationHelper.scheduleRepeatingRTCNotification(this@SettingActivity, node[0], node[1], i)
+                    NotificationHelper.scheduleRepeatingRTCNotification(this@SettingActivity, node[0], node[1], i,generate(i))
                     NotificationHelper.enableBootReceiver(this@SettingActivity)
                     ii += 1
                 }
@@ -101,6 +101,24 @@ class SettingActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun generate(id: Int): String = when (id) {
+        0 -> {
+            "Gym notification"
+        }
+        1 -> {
+            "Breakfast notification"
+        }
+        2 -> {
+            "Lunch notification"
+        }
+        3 -> {
+            "Dinner notification"
+        }
+        else -> {
+            ""
+        }
     }
 
 

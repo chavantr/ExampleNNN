@@ -50,6 +50,9 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         lblYourCurrentStatus.text = getString(R.string.you_are) + " : ${generate()}"
 
+        lblIdealWeight.text = "Ideal weight : ${UserInfoHolder.getInstance().user.idealWeight}"
+
+
     }
 
     private fun calculateBMI(): Double {
@@ -104,7 +107,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 true
             }
 
-            R.id.nav_week_weight ->{
+            R.id.nav_week_weight -> {
                 drawer_layout.closeDrawer(GravityCompat.START)
                 val intent = Intent(this@DashboardActivity, UpdateWeightActivity::class.java)
                 startActivity(intent)

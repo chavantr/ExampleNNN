@@ -94,6 +94,8 @@ class MainActivity : AppCompatActivity(), OnLoginListener {
 
             user.calories = result.getString("Calleries")
 
+            user.idealWeight = result.getString("IdealWeight")
+
             UserInfoHolder.getInstance().user = user
             val intent = Intent(this@MainActivity, DashboardActivity::class.java)
             startActivity(intent)

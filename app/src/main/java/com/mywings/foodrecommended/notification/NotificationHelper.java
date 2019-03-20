@@ -28,7 +28,7 @@ public class NotificationHelper {
      *
      * @param context
      */
-    public static void scheduleRepeatingRTCNotification(Context context, String hour, String min, int id) {
+    public static void scheduleRepeatingRTCNotification(Context context, String hour, String min, int id, String strMessage) {
         //get calendar instance to be able to select what time notification should be scheduled
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -39,8 +39,9 @@ public class NotificationHelper {
 
         //Setting intent to class where Alarm broadcast message will be handled
         Intent intent = new Intent(context, AlarmReceiver.class);
+        intent.putExtra("message",strMessage);
         //Setting alarm pending intent
-        alarmIntentRTC = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmIntentRTC = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_ONE_SHOT);
 
         //getting instance of AlarmManager service
         alarmManagerRTC = (AlarmManager) context.getSystemService(ALARM_SERVICE);

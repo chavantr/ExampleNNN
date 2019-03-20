@@ -14,19 +14,19 @@ class FoodInformationActivity : AppCompatActivity() {
 
         lblSnacks.setOnClickListener {
 
-            intent("1", 0)
+            intent("3", 0)
         }
 
         lblTimeForBreakfast.setOnClickListener {
-            intent("2", 0)
+            intent("1", 0)
         }
 
         lblTimeForLunch.setOnClickListener {
-            intent("3", 0)
+            intent("2", 0)
         }
 
         lblTimeForDinner.setOnClickListener {
-            intent("3", 0)
+            intent("4", 0)
         }
 
     }

@@ -28,18 +28,18 @@ public class AlarmReceiver extends BroadcastReceiver {
                 PendingIntent.getActivity(context, NotificationHelper.ALARM_TYPE_RTC, intentToRepeat, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //Build notification
-        Notification repeatedNotification = buildLocalNotification(context, pendingIntent).build();
+        Notification repeatedNotification = buildLocalNotification(context, pendingIntent,intent.getExtras().getString("message")).build();
 
         //Send local notification
         NotificationHelper.getNotificationManager(context).notify(NotificationHelper.ALARM_TYPE_RTC, repeatedNotification);
     }
 
-    public Notification.Builder buildLocalNotification(Context context, PendingIntent pendingIntent) {
+    public Notification.Builder buildLocalNotification(Context context, PendingIntent pendingIntent, String strMessage) {
         Notification.Builder builder =
                 new Notification.Builder(context)
                         .setContentIntent(pendingIntent)
                         .setSmallIcon(android.R.drawable.arrow_up_float)
-                        .setContentTitle("Morning Notification")
+                        .setContentTitle(strMessage)
                         .setAutoCancel(true);
 
         return builder;

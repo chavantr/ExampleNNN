@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import com.mywings.foodrecommended.models.SaveFood
 import com.mywings.foodrecommended.models.UserInfoHolder
-import com.mywings.foodrecommended.process.OnFoodSaveListener
-import com.mywings.foodrecommended.process.ProgressDialogUtil
-import com.mywings.foodrecommended.process.SaveFoodAsync
+import com.mywings.foodrecommended.process.*
 import kotlinx.android.synthetic.main.activity_recommended_plan.*
 import org.json.JSONObject
 
-class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener {
+class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener, OnGetSaveFoodListener {
+
 
     private lateinit var type: String
     private lateinit var progressDialogUtil: ProgressDialogUtil
@@ -46,14 +46,15 @@ class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener {
 
         progressDialogUtil = ProgressDialogUtil(this)
 
+        initFood()
+
     }
 
     private fun init() {
         progressDialogUtil.show()
-
         val saveFoodAsync = SaveFoodAsync()
-        var jRequest = JSONObject();
-        var param = JSONObject();
+        val jRequest = JSONObject()
+        val param = JSONObject()
         param.put("Breakfast", lblTimeForBreakfast.text)
         param.put("Lunch", lblTimeForLunch.text)
         param.put("Snacks", lblSnacks.text)
@@ -61,6 +62,15 @@ class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener {
         param.put("UId", com.mywings.foodrecommended.process.UserInfoHolder.getInstance().user.id)
         jRequest.put("request", param)
         saveFoodAsync.setOnFoodSaveListener(this, jRequest)
+    }
+
+    private fun initFood() {
+        progressDialogUtil.show()
+        val getSaveFoodAsync = GetSaveFoodAsync()
+        getSaveFoodAsync.setOnGetSaveFoodListener(
+            this,
+            "?id=" + com.mywings.foodrecommended.process.UserInfoHolder.getInstance().user.id
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -91,9 +101,20 @@ class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener {
         startActivityForResult(intent, 1001)
     }
 
+    override fun onGetSaveFoodSuccess(result: SaveFood?) {
+        progressDialogUtil.hide()
+        if (null != result) {
+            lblTimeForBreakfast.text = result.breakfast
+            lblTimeForLunch.text = result.lunch
+            lblSnacks.text = result.snacks
+            lblTimeForDinner.text = result.dinner
+        }
+    }
+
     override fun onFoodSaveSuccess(result: String?) {
         progressDialogUtil.hide()
         Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show()
+        finish()
     }
 
 
