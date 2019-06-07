@@ -32,6 +32,8 @@ class FoodInfoAdapter(lst: List<Calories>?, flg: Boolean) : RecyclerView.Adapter
 
         viewHolder.lblFoodInfo.text = lstFoodInfo!![position]!!.name
 
+        viewHolder.lblDesc.text = lstFoodInfo!![position]!!.desc
+
         viewHolder.lblFoodInfo.setOnClickListener {
             if (flag)
                 onFoodItemSelectedListener.onFoodSelectedSuccess(lstFoodInfo!![position])
@@ -45,6 +47,7 @@ class FoodInfoAdapter(lst: List<Calories>?, flg: Boolean) : RecyclerView.Adapter
     inner class FoodInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val lblFoodInfo = itemView.lblInfo
+        val lblDesc = itemView.lblDescription
 
     }
 

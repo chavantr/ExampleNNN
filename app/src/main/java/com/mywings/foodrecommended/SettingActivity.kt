@@ -1,8 +1,14 @@
 package com.mywings.foodrecommended
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity
 import android.text.format.DateFormat
 import android.widget.TextView
@@ -82,7 +88,14 @@ class SettingActivity : AppCompatActivity() {
             for (i in lstControls.indices) {
                 if (lstControls.get(i).text.contains(":")) {
                     val node = lstControls.get(i).text.split(":")
-                    NotificationHelper.scheduleRepeatingRTCNotification(this@SettingActivity, node[0], node[1], i,generate(i))
+                    NotificationHelper.scheduleRepeatingRTCNotification(
+                        this@SettingActivity,
+                        node[0],
+                        node[1],
+                        i,
+                        generate(i)
+                    )
+                    showNotification(getLabel(i!!), "You have notification");
                     NotificationHelper.enableBootReceiver(this@SettingActivity)
                     ii += 1
                 }
@@ -100,6 +113,19 @@ class SettingActivity : AppCompatActivity() {
             }
 
         }
+
+    }
+
+    private fun getLabel(i: Int): String {
+
+        return when (i) {
+            1 -> "Snacks"
+            2 -> "breakfast"
+            3 -> "Lunch"
+            4 -> "Dinner"
+            else -> ""
+        }
+
 
     }
 
@@ -144,6 +170,27 @@ class SettingActivity : AppCompatActivity() {
         calendar.set(Calendar.HOUR_OF_DAY, hour)
         calendar.set(Calendar.MINUTE, minute)
         lblTimeForDinner.text = convertToTime(calendar)
+    }
+
+
+    private fun showNotification(type: String, message: String) {
+        val intent = Intent(this, DashboardActivity::class.java)
+        val contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val b = NotificationCompat.Builder(this)
+
+        b.setAutoCancel(true)
+            .setDefaults(Notification.DEFAULT_ALL)
+            .setWhen(System.currentTimeMillis() + (10000 * 5))
+            .setSmallIcon(R.drawable.notification_icon_background)
+            .setTicker(type)
+            .setContentTitle(type)
+            .setContentText(message)
+            .setDefaults(Notification.DEFAULT_LIGHTS or Notification.DEFAULT_SOUND)
+            .setContentIntent(contentIntent)
+            .setContentInfo("Info")
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(1, b.build())
     }
 
 

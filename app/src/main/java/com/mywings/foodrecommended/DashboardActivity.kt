@@ -9,10 +9,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.mywings.foodrecommended.binder.FoodAdapter
 import com.mywings.foodrecommended.models.Food
-import com.mywings.foodrecommended.process.GetFoodRecommendeAsync
-import com.mywings.foodrecommended.process.OnFoodListener
-import com.mywings.foodrecommended.process.ProgressDialogUtil
-import com.mywings.foodrecommended.process.UserInfoHolder
+import com.mywings.foodrecommended.models.SaveFood
+import com.mywings.foodrecommended.process.*
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
 import kotlinx.android.synthetic.main.content_dashboard.*
@@ -20,7 +18,8 @@ import kotlinx.android.synthetic.main.nav_header_dashboard.view.*
 import org.json.JSONArray
 import org.json.JSONObject
 
-class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, OnFoodListener {
+class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, OnFoodListener,
+    OnGetSaveFoodListener {
 
     private lateinit var progressDialogUtil: ProgressDialogUtil
     private lateinit var foodAdapter: FoodAdapter
@@ -52,7 +51,7 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         lblIdealWeight.text = "Ideal weight : ${UserInfoHolder.getInstance().user.idealWeight}"
 
-
+        initFood()
     }
 
     private fun calculateBMI(): Double {
@@ -235,6 +234,25 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             user.gender,
             true
         ) && (!food.desease.isNullOrEmpty() || !food.medicine.isNullOrEmpty() || !food.allergy.isNullOrEmpty())
+    }
+
+    private fun initFood() {
+        progressDialogUtil.show()
+        val getSaveFoodAsync = GetSaveFoodAsync()
+        getSaveFoodAsync.setOnGetSaveFoodListener(
+            this,
+            "?id=" + com.mywings.foodrecommended.process.UserInfoHolder.getInstance().user.id
+        )
+    }
+
+    override fun onGetSaveFoodSuccess(result: SaveFood?) {
+        progressDialogUtil.hide()
+        if (null != result) {
+            lblTimeForBreakfast.text = result.breakfast
+            lblTimeForLunch.text = result.lunch
+            lblSnacks.text = result.snacks
+            lblTimeForDinner.text = result.dinner
+        }
     }
 
     private fun selectNon(food: Food) =

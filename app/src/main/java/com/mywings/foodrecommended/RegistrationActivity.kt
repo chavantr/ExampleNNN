@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import com.mywings.foodrecommended.process.OnRegistrationListener
 import com.mywings.foodrecommended.process.ProgressDialogUtil
 import com.mywings.foodrecommended.process.RegistrationAsync
@@ -26,6 +27,16 @@ class RegistrationActivity : AppCompatActivity(), OnRegistrationListener {
         }
         btnRegister.setOnClickListener {
             if (validate()) {
+                if (txtPassword.text.toString().length < 8
+                    && txtUserName.text.toString().length < 8
+                ) {
+                    Toast.makeText(
+                        this,
+                        "Username and password should be grater than eight character",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    return@setOnClickListener
+                }
                 initRegistration()
             } else {
                 Snackbar.make(btnRegister, "All fields required.", Snackbar.LENGTH_LONG).show()
@@ -107,9 +118,12 @@ class RegistrationActivity : AppCompatActivity(), OnRegistrationListener {
         //param.put("Income", txtEconomic.text)
         param.put("Exercise", spnExercise.selectedItem.toString())
         param.put("Calleries", calculateBMI())
+        param.put("Category", category())
         jrequest.put("user", param)
         registrationAsync.setOnRegistrationListener(this, jrequest)
     }
+
+    private fun category() = if (chkNVeg.isChecked) 2 else 1
 
     override fun onRegistrationSuccess(result: String) {
         progressDialogUtil.hide()

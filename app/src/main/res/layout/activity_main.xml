@@ -68,8 +68,11 @@
             android:layout_marginStart="64dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="64dp"/>
 
-
-
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/btnForgotPassword"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp" android:text="@string/forgot_password"
+            android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="64dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="64dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

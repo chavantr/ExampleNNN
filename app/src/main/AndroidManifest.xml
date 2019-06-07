@@ -11,17 +11,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".UpdateWeightActivity">
+        <activity android:name=".ForgotPasswordActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".RecommendedPlanActivity">
+        <activity android:name=".UpdateWeightActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".ExpertActivity">
+        <activity android:name=".RecommendedPlanActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".FoodInformationActivity">
+        <activity android:name=".ExpertActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SelectFoodActivity">
+        <activity android:name=".FoodInformationActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".FaqActivity">
+        <activity android:name=".SelectFoodActivity" android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".FaqActivity" android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".FoodDetailActivity"

@@ -39,7 +39,7 @@ public class NotificationHelper {
 
         //Setting intent to class where Alarm broadcast message will be handled
         Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.putExtra("message",strMessage);
+        intent.putExtra("message", strMessage);
         //Setting alarm pending intent
         alarmIntentRTC = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

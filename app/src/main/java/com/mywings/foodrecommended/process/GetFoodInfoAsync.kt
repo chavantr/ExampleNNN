@@ -21,6 +21,8 @@ class GetFoodInfoAsync : AsyncTask<String, Void, List<Calories>?>() {
                     calories.name = jNode.getString("Name")
                     calories.calories = jNode.getInt("Calories")
                     calories.type = jNode.getInt("Type")
+                    calories.category = jNode.getInt("Category")
+                    calories.desc = jNode.getString("Description")
                     lst.add(calories)
                 }
             }

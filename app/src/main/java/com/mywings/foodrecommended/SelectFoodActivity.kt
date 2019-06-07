@@ -1,9 +1,8 @@
 package com.mywings.foodrecommended
 
-import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.mywings.foodrecommended.binder.FoodInfoAdapter
 import com.mywings.foodrecommended.models.Calories
@@ -25,7 +24,7 @@ class SelectFoodActivity : AppCompatActivity(), OnFoodInfoListener, OnFoodItemSe
         setContentView(R.layout.activity_select_food)
         lstFood.layoutManager = LinearLayoutManager(this)
         progressDialogUtil = ProgressDialogUtil(this)
-        flag = intent.extras.getInt("calories") > 0
+        flag = intent.extras.getDouble("calories") > 0
         init()
     }
 
@@ -43,16 +42,18 @@ class SelectFoodActivity : AppCompatActivity(), OnFoodInfoListener, OnFoodItemSe
         val getFoodInfoAsync = GetFoodInfoAsync()
         getFoodInfoAsync.setOnFoodInfoListener(
             this,
-            "?type=" + intent.extras.getString("type") + "&calories=" + intent.extras.getInt("calories", 0)
+            "?type=" + intent.extras.getString("type") + "&calories=" + intent.extras.getDouble(
+                "calories",
+                0.0
+            ) + "&category=" + com.mywings.foodrecommended.process.UserInfoHolder.getInstance().user.category
         )
     }
 
     override fun onFoodSelectedSuccess(calories: Calories?) {
         UserInfoHolder.getInstance().calories = calories
         val intent = Intent()
-        setResult(RESULT_OK,intent)
+        setResult(RESULT_OK, intent)
         finish()
-
     }
 
 }

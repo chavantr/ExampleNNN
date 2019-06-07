@@ -48,9 +48,8 @@ class UpdateWeightActivity : AppCompatActivity(), OnWeekUpdateListener, OnSetOnU
     }
 
     override fun onSetUpdateSuccess(result: String?) {
-
         progressDialogUtil.hide()
         txtWeight.setText("")
-
+        finish()
     }
 }

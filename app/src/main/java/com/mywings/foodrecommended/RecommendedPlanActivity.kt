@@ -12,7 +12,6 @@ import org.json.JSONObject
 
 class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener, OnGetSaveFoodListener {
 
-
     private lateinit var type: String
     private lateinit var progressDialogUtil: ProgressDialogUtil
 
@@ -22,22 +21,22 @@ class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener, OnGetSa
 
         lblSnacks.setOnClickListener {
             type = "3"
-            intent("3", 150)
+            intent("3", UserInfoHolder.getInstance().snacks)
         }
 
         lblTimeForBreakfast.setOnClickListener {
             type = "1"
-            intent("1", 200)
+            intent("1", UserInfoHolder.getInstance().breakfast)
         }
 
         lblTimeForLunch.setOnClickListener {
             type = "2"
-            intent("2", 200)
+            intent("2", UserInfoHolder.getInstance().lunch)
         }
 
         lblTimeForDinner.setOnClickListener {
             type = "4"
-            intent("4", 200)
+            intent("4", UserInfoHolder.getInstance().dinner)
         }
 
         btnSave.setOnClickListener {
@@ -94,7 +93,7 @@ class RecommendedPlanActivity : AppCompatActivity(), OnFoodSaveListener, OnGetSa
         }
     }
 
-    private fun intent(type: String?, calories: Int?) {
+    private fun intent(type: String?, calories: Double?) {
         val intent = Intent(this, SelectFoodActivity::class.java)
         intent.putExtra("type", type)
         intent.putExtra("calories", calories)

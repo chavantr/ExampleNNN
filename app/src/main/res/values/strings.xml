@@ -10,8 +10,8 @@
     <string name="enter_age">Enter age</string>
     <string name="enter_alergy">Enter allergies</string>
     <string name="enter_daily_medicines">Enter daily medicines</string>
-    <string name="enter_height">Enter height</string>
-    <string name="enter_weight">Enter weight</string>
+    <string name="enter_height">Enter height (cm)</string>
+    <string name="enter_weight">Enter weight (kg)</string>
     <string name="enter_income_optional">Enter income(Optional)</string>
     <string name="cancel">Cancel</string>
     <string-array name="gender">
@@ -112,5 +112,10 @@
     <string name="breakfast">Breakfast</string>
     <string name="snacks">Snacks</string>
     <string name="info">Info</string>
+    <string name="veg">Veg</string>
+    <string name="nov_veg">Nov veg</string>
+    <string name="enter_password_to_reset">Enter password to reset</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_password">Forgot password</string>
 
 </resources>

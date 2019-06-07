@@ -3,7 +3,7 @@ package com.mywings.foodrecommended.process
 object ConstantsUtil {
 
     //const val URL = "http://192.168.43.157:8042/MyRestService.svc/"
-    const val URL = "http://mobile.punetraining.com/MyRestService.svc/"
+    const val URL = "http://globemindstechnologies.com/MyRestService.svc/"
 
     const val REGISTRATION = "FMS_Register"
 
@@ -28,6 +28,10 @@ object ConstantsUtil {
     const val GET_SAVE_FOOD = "FMS_GetSaveFood"
 
     const val GET_WEIGHT_CHART = "FMS_GetWeightChart"
+
+    const val FORGOT_PASSWORD = "FMS_ForgotPassword"
+
+    const val VALUE = 2.204
 
 
 }
