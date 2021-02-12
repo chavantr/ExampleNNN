@@ -14,7 +14,7 @@ class GetFoodInfoAsync : AsyncTask<String, Void, List<Calories>?>() {
             val jInfo = JSONArray(response)
             var lst = ArrayList<Calories>()
             if (jInfo.length() > 0) {
-                for (i in 0..(jInfo.length() - 1)) {
+                for (i in 0 until jInfo.length()) {
                     var calories = Calories()
                     var jNode = jInfo.getJSONObject(i)
                     calories.id = jNode.getInt("Id")
@@ -32,7 +32,7 @@ class GetFoodInfoAsync : AsyncTask<String, Void, List<Calories>?>() {
 
     override fun onPostExecute(result: List<Calories>?) {
         super.onPostExecute(result)
-        onFoodInfoListener.onFoodInfoSuccess(result!!)
+        onFoodInfoListener.onFoodInfoSuccess(result?:listOf(Calories()))
     }
 
     fun setOnFoodInfoListener(onFoodInfoListener: OnFoodInfoListener, request: String?) {
